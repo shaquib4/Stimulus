@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1B1A21"
+    tools:context=".SongsList">
+
+    <RelativeLayout
+        android:layout_marginHorizontal="@dimen/_7sdp"
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp" >
+        <TextView
+            android:layout_marginStart="@dimen/_20sdp"
+            android:drawablePadding="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_22ssp"
+            android:letterSpacing="0.1"
+            android:textStyle="bold"
+            android:text="Stimulus"
+            app:drawableLeftCompat="@drawable/ic_music" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
