@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/_12sdp"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/bd_single_song"
+        android:layout_height="@dimen/_56sdp">
+        <ImageView
+            android:id="@+id/imgMusic"
+            android:layout_alignParentStart="true"
+            android:layout_marginVertical="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:src="@drawable/ic_musicrecycler"
+            android:layout_width="@dimen/_72sdp"
+            android:layout_height="match_parent"/>
+        <RelativeLayout
+            android:layout_marginVertical="@dimen/_3sdp"
+            android:layout_toEndOf="@+id/imgMusic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/songName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Darkside wbhjjwjh"
+                android:textStyle="bold"
+               android:layout_margin="0dp"
+                android:textSize="@dimen/_18sdp"/>
+            <TextView
+                android:layout_below="@+id/songName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:text="Alan Wlaker"
+                android:textSize="@dimen/_16sdp"/>
+        </RelativeLayout>
+    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

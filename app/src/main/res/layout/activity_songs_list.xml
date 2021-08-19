@@ -8,8 +8,9 @@
     tools:context=".SongsList">
 
     <RelativeLayout
+        android:id="@+id/sti"
         android:layout_marginHorizontal="@dimen/_7sdp"
-        android:layout_marginVertical="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_48sdp" >
         <TextView
@@ -26,6 +27,12 @@
             app:drawableLeftCompat="@drawable/ic_music" />
     </RelativeLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sti"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        tools:listitem="@layout/single_songs" />
 
 
 </RelativeLayout>
