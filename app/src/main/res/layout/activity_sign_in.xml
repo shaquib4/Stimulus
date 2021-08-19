@@ -178,7 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text=" Don't have a account?"
+                android:text=" Don't have an account?"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textStyle="bold"
                 android:textColor="@color/white"/>
