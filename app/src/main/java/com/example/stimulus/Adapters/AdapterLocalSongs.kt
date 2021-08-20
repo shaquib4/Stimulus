@@ -43,6 +43,9 @@ class AdapterLocalSongs(val context: Context, val songList: List<LocalSongs>):Re
             }catch (e:Exception){
                 e.printStackTrace()
             }
+            val intent= Intent(context, PlaySong::class.java)
+            intent.putExtra("songFile",songs.songFile)
+            context.startActivity(intent)
         }
 
     }
