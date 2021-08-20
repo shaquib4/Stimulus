@@ -37,7 +37,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/txtSignUp">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/profileImage"
             android:layout_width="@dimen/_110sdp"
             android:layout_height="@dimen/_110sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -45,7 +45,7 @@
             android:src="@drawable/profile"/>
 
         <TextView
-            android:layout_below="@+id/profile_image"
+            android:layout_below="@+id/profileImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
