@@ -5,7 +5,7 @@ import android.os.Bundle
 import java.lang.Exception
 
 class PlaySong : AppCompatActivity() {
-    var mp=android.media.MediaPlayer()
+      private var mp=android.media.MediaPlayer()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
