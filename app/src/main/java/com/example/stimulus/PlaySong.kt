@@ -5,7 +5,10 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.SeekBar
+import android.widget.TextView
 import android.widget.Toast
 import com.example.stimulus.Models.LocalSongs
 import com.example.stimulus.Models.MusicPlayerN
@@ -18,18 +21,29 @@ class PlaySong : AppCompatActivity() {
     private lateinit var nextSong:CircleImageView
     private lateinit var prevsong:CircleImageView
     private lateinit var seekbar:SeekBar
+    private lateinit var progressTime:TextView
+    private lateinit var  songDuration:TextView
+    private var endTime=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_song)
+
        val songFile=intent.getSerializableExtra("songList")
        playPause=findViewById(R.id.playPause)
         nextSong=findViewById(R.id.nextSong)
         prevsong= findViewById(R.id.previousSong)
+        progressTime=findViewById(R.id.start_time)
+        songDuration=findViewById(R.id.end_time)
         seekbar=findViewById(R.id.seekBar)
         startService(Intent(baseContext,
                 ClearService::class.java))
-        seekbar.max=MusicPlayerN.musicPlayer!!.duration/1000
+        val song_Duration=MusicPlayerN.musicPlayer!!.duration/1000
+        endTime=(song_Duration/60).toString()+":"+(song_Duration%60).toString()
+        songDuration.text=endTime
+        seekbar.max=song_Duration
+
+
         seekbar.setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                if (MusicPlayerN.musicPlayer!=null&&fromUser){
@@ -46,15 +60,18 @@ class PlaySong : AppCompatActivity() {
             }
 
         })
+        val handler=Handler()
         this.runOnUiThread(object :Runnable{
             override fun run() {
                 if(MusicPlayerN.musicPlayer!=null){
                     val currentPosition=MusicPlayerN.musicPlayer!!.currentPosition/1000
                     seekbar.progress = currentPosition
-
+                    progressTime.text=currentTime(currentPosition)
 
 
                 }
+                handler.postDelayed(this,1000)
+
             }
 
         })
@@ -149,6 +166,18 @@ class PlaySong : AppCompatActivity() {
 
 
 
+    }
+
+    private fun currentTime(currentPosition: Int): String {
+        var time=""
+        var seconds=(currentPosition%60).toString()
+        var minutes=(currentPosition/60).toString()
+        if(seconds.length==1){
+            time= "$minutes:0$seconds"
+        }else{
+            time="$minutes:$seconds"
+        }
+        return time
     }
 
 }
