@@ -47,6 +47,7 @@
             android:textColor="@color/white"
             android:layout_alignParentLeft="true" />
         <SeekBar
+            android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/start_time"
@@ -71,17 +72,20 @@
         android:layout_below="@id/music_img"
         android:orientation="horizontal">
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/previousSong"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:layout_marginRight="@dimen/_30sdp"
             android:src="@drawable/ic_previous"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/playPause"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
-            android:src="@drawable/ic_play"/>
+            />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/nextSong"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:layout_marginLeft="@dimen/_30sdp"

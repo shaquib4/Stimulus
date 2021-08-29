@@ -28,12 +28,62 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_above="@id/songInfo"
         android:id="@+id/recycler_view"
+        android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+
         android:layout_below="@id/sti"
         android:layout_marginHorizontal="@dimen/_12sdp"
         tools:listitem="@layout/single_songs" />
+    <RelativeLayout
+        android:id="@+id/songInfo"
+        android:layout_marginHorizontal="@dimen/_3sdp"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="@dimen/_48sdp"
+        android:background="@drawable/bg_song_info"
+        >
+        <ImageView
+
+            android:id="@+id/imgMusic"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:src="@drawable/ic_musicrecycler"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="match_parent"/>
+        <RelativeLayout
+            android:layout_toEndOf="@+id/imgMusic"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/song_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:textColor="@color/white"
+                android:text="No songs playing"
+                android:textStyle="bold"
+                android:layout_margin="0dp"
+                android:textSize="@dimen/_14sdp"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:ellipsize="marquee"
+                android:scrollHorizontally="true"/>
+            <TextView
+                android:id="@+id/song_artist"
+                android:layout_below="@+id/song_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:text=""
+                android:textSize="@dimen/_12sdp"/>
+        </RelativeLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>
