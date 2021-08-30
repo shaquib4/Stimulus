@@ -101,6 +101,7 @@
             android:textColor="#fcfcfc"/>
 
         <EditText
+            android:textColor="#fff"
             android:id="@+id/edtemail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_48sdp"
@@ -124,6 +125,7 @@
 
 
         <EditText
+            android:textColor="#fff"
             android:id="@+id/edtpass"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_48ssp"
