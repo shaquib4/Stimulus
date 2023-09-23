@@ -79,6 +79,7 @@ class SongsList : AppCompatActivity(), PermissionListener {
      @SuppressLint("Recycle")
      fun  fetchSongs (){
 
+
          var uri=MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
          var selection=MediaStore.Audio.Media.IS_MUSIC+"!=0"
          var cursor=contentResolver.query(uri, null, selection, null, null)
