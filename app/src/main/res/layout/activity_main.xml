@@ -1,11 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/splash"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignInActivity"
+    android:background="@color/Black1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:id="@+id/txtLogin"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="@drawable/bg_key"
+                android:layout_centerVertical="true"
+                android:id="@+id/key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_key"/>
+            <TextView
+                android:layout_toEndOf="@+id/key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fcfcfc"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:textSize="@dimen/_28ssp"
+                android:text="Login"/>
+
+        </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:layout_below="@id/txtLogin"
+            android:layout_width="wrap_content"
+            android:id="@+id/txt"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" Log in with google"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_gravity="start"
+            android:textColor="@color/gray"/>
+
+
+        <ImageView
+            android:id="@+id/sign_in_btn"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_below="@+id/txt"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/google_icon_bg"
+            android:src="@drawable/ic_google" />
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_20sdp"
+            android:id="@+id/rl_view"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/sign_in_btn"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+
+                android:background="#6D6968"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/_16sdp"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:text="OR"
+                android:textStyle="normal"
+                android:background="@color/Black1"
+                android:textColor="#6D6968"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_below="@+id/rl_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/Email"
+            android:text=" Email"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_gravity="start"
+            android:textStyle="bold"
+            android:textColor="#fcfcfc"/>
+
+        <EditText
+            android:textColor="#fff"
+            android:id="@+id/edtemail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_below="@+id/Email"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#6D6968" />
+        <TextView
+            android:layout_below="@+id/edtemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/Pass"
+            android:text=" Password"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_gravity="start"
+            android:textStyle="bold"
+            android:textColor="#fcfcfc"/>
+
+
+        <EditText
+            android:textColor="#fff"
+            android:id="@+id/edtpass"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48ssp"
+            android:layout_below="@+id/Pass"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="#6D6968" />
+
+        <TextView
+            android:layout_below="@+id/edtpass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Forgot your password? "
+            android:layout_marginTop="10dp"
+            android:layout_gravity="end"
+            android:textStyle="bold"
+            android:id="@+id/forgotPassword"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_41sdp"
+            android:layout_below="@id/forgotPassword"
+            android:layout_gravity="left"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@drawable/btn_bg"
+            android:letterSpacing="0.05"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+
+            android:layout_below="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/dont_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=" Don't have an account?"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/btn_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toEndOf="@id/dont_account"
+                android:gravity="center"
+                android:text="SignUp"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

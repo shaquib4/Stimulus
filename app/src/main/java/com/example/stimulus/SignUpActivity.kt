@@ -1,37 +1,64 @@
 package com.example.stimulus
 
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
-import de.hdodenhof.circleimageview.CircleImageView
+import android.util.Patterns
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var profileImage: CircleImageView
-    private  var filepath: Uri? =null
+lateinit var signIn : TextView
+    private lateinit var auth: FirebaseAuth
+    lateinit var signUp: Button
+    lateinit var email: EditText
+    lateinit var password: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-        profileImage=findViewById(R.id.profileImage)
-        profileImage.setOnClickListener {
-            selectImage()
+        auth = FirebaseAuth.getInstance()
+        signUp = findViewById(R.id.btnSignUp)
+        email = findViewById(R.id.edt_email)
+        password = findViewById(R.id.edt_pass)
+signIn = findViewById(R.id.txtSignIn)
+        signIn.setOnClickListener{
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+        signUp.setOnClickListener {
+            signUpUser()
         }
     }
-    private fun selectImage() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Choose Image"), 111)
-    }
+    private fun signUpUser(){
+        if (email.text.toString().isEmpty()) {
+            email.error = "Please Enter email"
+            email.requestFocus()
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
+            email.error = "please enter valid email"
+            email.requestFocus()
+            return
+        }
+        if (password.text.toString().isEmpty()) {
+            email.error = "Please Enter password"
+            email.requestFocus()
+            return
+        }
+        auth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                } else {
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 111 && resultCode == Activity.RESULT_OK && data != null) {
-            filepath = data.data!!
-            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
-            profileImage.setImageBitmap(bitmap)
-        }
+                    Toast.makeText(baseContext, "SignUp Failed",
+                        Toast.LENGTH_SHORT).show()
+
+                }
+            }
     }
 }

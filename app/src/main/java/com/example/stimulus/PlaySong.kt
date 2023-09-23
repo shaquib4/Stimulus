@@ -6,11 +6,9 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
-import com.example.stimulus.Models.LocalSongs
 import com.example.stimulus.Models.MusicPlayerN
 import com.example.stimulus.Models.Songs_list
 import de.hdodenhof.circleimageview.CircleImageView
